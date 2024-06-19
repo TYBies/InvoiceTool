@@ -3,6 +3,7 @@ package com.businesstool.invoice.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.businesstool.invoice.Repository.InvoiceRepository;
@@ -11,6 +12,8 @@ import com.businesstool.invoice.entities.InvoiceEntity;
 
 @Service
 public class InvoiceServiceImpl implements InvoiceService{
+
+    @Autowired
     private InvoiceRepository invoiceRepository ;
 
     @Override
@@ -21,6 +24,9 @@ public class InvoiceServiceImpl implements InvoiceService{
 
     @Override
     public InvoiceDto createInvoice(InvoiceDto invoiceDTO) {
+        if (invoiceDTO == null) {
+            throw new IllegalArgumentException("Invoice cannot be null");
+        }
        InvoiceEntity invoice = new InvoiceEntity();
        invoice.setClient(invoiceDTO.getClient());
        invoice.setItems(invoiceDTO.getItems());
