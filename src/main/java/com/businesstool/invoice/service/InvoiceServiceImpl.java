@@ -75,6 +75,4 @@ public class InvoiceServiceImpl implements InvoiceService{
          invoice = invoiceRepository.findById(id).orElseThrow(() -> new RuntimeException("Invoice not found"));
         invoiceRepository.delete(invoice);
     }
-    
-
 }
