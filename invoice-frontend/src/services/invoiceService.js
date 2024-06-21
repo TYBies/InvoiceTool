@@ -6,15 +6,6 @@ export const getInvoice = (id) => {
     return axios.get(`${API_URL}/${id}`);
 };
 
-const apiUrl = 'http://192.168.0.124:3001/api/invoices';
-
-// Example API call
-fetch(API_URL)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
-
-
 export const getAllInvoices = () => {
     return axios.get(API_URL);
 };
